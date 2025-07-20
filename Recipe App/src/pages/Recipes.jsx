@@ -13,6 +13,6 @@ const Recipes = () => {
             {data.length > 0 ? renderrecipes : "No recipes found!"}
         </div>
     );
-};
+};  
 
 export default Recipes;

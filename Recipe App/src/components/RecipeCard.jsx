@@ -12,7 +12,7 @@ const RecipeCard = (props) => {
             </div>
             <h1 className="px-4 font-mono text-2xl mb-2 leading-7 text-gray-800">{title}</h1>
             <p className="px-4 font-medium opacity-70 text-black">
-                {desc.slice(0, 100)}...{" "}
+                {/* {desc.slice(0, 100)}...{" "} */}
                 <small className="text-blue-400">more</small>
             </p>
             <div className="flex justify-end">
