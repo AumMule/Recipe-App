@@ -12,15 +12,23 @@ const Create = () => {
 
     const SubmitHandler = (recipe) => {
         recipe.id = nanoid();
-        const copydata = [...data];
-        copydata.push(recipe);
+
+        // FIX: Map form fields correctly
+        recipe.ingredients = recipe.ingr.split(",").map((item) => item.trim());
+        recipe.instructions = recipe.inst;
+
+        delete recipe.ingr;
+        delete recipe.inst;
+
+        const copydata = [...data, recipe];
         setdata(copydata);
-        localStorage.setItem("recipes",JSON.stringify(copydata))
-        // setdata([...data, recipe]);
+        localStorage.setItem("recipes", JSON.stringify(copydata));
+
         toast.success("New recipe created!");
         reset();
         navigate("/recipes");
     };
+
 
     return (
         <div className="min-h-screen py-8 px-4">
@@ -34,13 +42,13 @@ const Create = () => {
                 {/* Form Card */}
                 <div className="bg-white rounded-xl shadow-sm p-8">
                     <form onSubmit={handleSubmit(SubmitHandler)} className="space-y-6">
-                        
+
                         {/* Image URL */}
                         <div className="space-y-2">
                             <label className="text-sm font-medium text-gray-700">Recipe Image</label>
                             <input
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder-gray-400"
-                                {...register("image", { 
+                                {...register("image", {
                                     required: "Image URL is required",
                                     pattern: {
                                         value: /^https?:\/\/.+\..+/,
@@ -63,7 +71,7 @@ const Create = () => {
                                 <label className="text-sm font-medium text-gray-700">Recipe Title</label>
                                 <input
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder-gray-400"
-                                    {...register("title", { 
+                                    {...register("title", {
                                         required: "Recipe title is required",
                                         minLength: {
                                             value: 3,
@@ -82,8 +90,8 @@ const Create = () => {
                                 <label className="text-sm font-medium text-gray-700">Chef Name</label>
                                 <input
                                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder-gray-400"
-                                    {...register("chef", { 
-                                        required: "Chef name is required" 
+                                    {...register("chef", {
+                                        required: "Chef name is required"
                                     })}
                                     type="text"
                                     placeholder="e.g., Gordon Ramsay"
@@ -99,8 +107,8 @@ const Create = () => {
                             <label className="text-sm font-medium text-gray-700">Category</label>
                             <select
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all bg-white"
-                                {...register("category", { 
-                                    required: "Please select a category" 
+                                {...register("category", {
+                                    required: "Please select a category"
                                 })}
                             >
                                 <option value="">Select a category</option>
@@ -121,7 +129,7 @@ const Create = () => {
                             <label className="text-sm font-medium text-gray-700">Recipe Description</label>
                             <textarea
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder-gray-400 resize-none"
-                                {...register("desc", { 
+                                {...register("desc", {
                                     required: "Description is required",
                                     minLength: {
                                         value: 10,
@@ -144,8 +152,8 @@ const Create = () => {
                             </label>
                             <textarea
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder-gray-400 resize-none"
-                                {...register("ingr", { 
-                                    required: "Ingredients are required" 
+                                {...register("ingr", {
+                                    required: "Ingredients are required"
                                 })}
                                 rows="5"
                                 placeholder="2 cups flour, 1 cup sugar, 3 eggs, 1 tsp vanilla extract..."
@@ -163,8 +171,8 @@ const Create = () => {
                             </label>
                             <textarea
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder-gray-400 resize-none"
-                                {...register("inst", { 
-                                    required: "Instructions are required" 
+                                {...register("inst", {
+                                    required: "Instructions are required"
                                 })}
                                 rows="6"
                                 placeholder="Preheat oven to 350°F, Mix dry ingredients in a bowl, Add wet ingredients and stir..."
@@ -176,7 +184,7 @@ const Create = () => {
 
                         {/* Submit Button */}
                         <div className="pt-4">
-                            <button 
+                            <button
                                 type="submit"
                                 className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:ring-4 focus:ring-blue-200 shadow-lg"
                             >
