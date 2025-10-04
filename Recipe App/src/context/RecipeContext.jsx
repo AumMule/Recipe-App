@@ -51,7 +51,7 @@ const RecipeContext = (props) => {
           title: "Chicken Curry",
           ingredients: ["chicken", "onion", "tomato", "yogurt", "spices"],
           instructions: "Marinate chicken in yogurt and spices. Cook onions, add tomato, and simmer with chicken.",
-          image: "https://cdn.pixabay.com/photo/2020/06/21/20/44/chicken-5325974_960_720.jpg",
+          image: "https://cdn.pixabay.com/photo/2021/07/29/12/43/curry-6507120_1280.jpg",
           chef: "Kruu Nagin"
         },
         {
@@ -59,7 +59,7 @@ const RecipeContext = (props) => {
           title: "Veggie Pizza",
           ingredients: ["pizza base", "cheese", "bell peppers", "onions", "tomato sauce"],
           instructions: "Spread sauce on base, add veggies and cheese. Bake at 220°C for 15 minutes.",
-          image: "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg",
+          image: "https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_1280.jpg",
           chef: "Carlos Mendoza"
         },
         {
@@ -67,7 +67,7 @@ const RecipeContext = (props) => {
           title: "Pancakes",
           ingredients: ["flour", "milk", "eggs", "baking powder", "sugar"],
           instructions: "Mix all ingredients into a smooth batter. Pour on a hot griddle and cook both sides.",
-          image: "https://cdn.pixabay.com/photo/2017/05/07/08/56/pancake-2291908_960_720.jpg",
+          image: "https://cdn.pixabay.com/photo/2023/02/24/21/11/pancake-7811889_1280.jpg",
           chef: "Sophia Nguyen"
         },
         {
@@ -75,7 +75,7 @@ const RecipeContext = (props) => {
           title: "Caesar Salad",
           ingredients: ["lettuce", "croutons", "parmesan", "Caesar dressing", "chicken (optional)"],
           instructions: "Toss all ingredients with dressing and top with grated parmesan.",
-          image: "https://cdn.pixabay.com/photo/2016/03/05/19/02/appetite-1238614_960_720.jpg",
+          image: "https://cdn.pixabay.com/photo/2017/08/11/00/32/salad-2629262_1280.jpg",
           chef: "Daniel Thompson"
         },
         {
@@ -83,7 +83,7 @@ const RecipeContext = (props) => {
           title: "Chole Bhature",
           ingredients: ["chickpeas", "onions", "tomatoes", "bhature dough", "spices"],
           instructions: "Cook chickpeas with spices and masala. Fry bhature and serve hot with chole.",
-          image: "https://cdn.pixabay.com/photo/2021/10/28/14/19/chole-bhature-6750311_960_720.jpg",
+          image: "https://cdn.pixabay.com/photo/2022/12/28/17/44/bowl-7683485_1280.jpg",
           chef: "Neha Joshi"
         },
         {
@@ -91,7 +91,7 @@ const RecipeContext = (props) => {
           title: "Mango Smoothie",
           ingredients: ["mango", "yogurt", "milk", "honey"],
           instructions: "Blend all ingredients until smooth. Serve chilled.",
-          image: "https://cdn.pixabay.com/photo/2021/05/30/06/53/mango-smoothie-6295830_960_720.jpg",
+          image: "https://cdn.pixabay.com/photo/2022/12/28/17/44/bowl-7683485_1280.jpg",
           chef: "Oliver Bennett"
         },
         {
@@ -99,7 +99,7 @@ const RecipeContext = (props) => {
           title: "Chocolate Brownies",
           ingredients: ["cocoa powder", "flour", "sugar", "butter", "eggs"],
           instructions: "Mix ingredients, pour into a tray, and bake at 180°C for 25 minutes.",
-          image: "https://cdn.pixabay.com/photo/2016/03/05/19/02/appetite-1238613_960_720.jpg",
+          image: "https://cdn.pixabay.com/photo/2018/09/19/17/54/chocolate-cake-3689088_1280.jpg",
           chef: "Isha Malhotra"
         }
       ];
