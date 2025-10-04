@@ -15,7 +15,7 @@ const Home = () => {
                     "Find the perfect recipe  <span className="text-yellow-500">fast</span>, <span className="text-[#FF4343]">fresh</span>, and <span className=" duration-75 delay-75 opacity-65 hover:opacity-95">full of flavor</span>.”
                 </h2>
             </div>
-            <img className="overflow-hidden w-[30%] duration-250 delay-75 hover:scale-110 max-md:w-full" src="public\images\chef.png" alt="" />
+            <img className="overflow-hidden w-[30%] duration-250 delay-75 hover:scale-110 max-md:w-full" src="\images\chef.png" alt="" />
 
         </div>
         

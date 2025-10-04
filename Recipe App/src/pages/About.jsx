@@ -7,7 +7,7 @@ const About = () => {
                         "Your culinary journey starts <span className="text-yellow-500">here</span>, with <span className="text-[#FF4343]">passion</span>, and <span className="duration-75 delay-75 opacity-65 hover:opacity-95">endless possibilities</span>."
                     </h2>
                 </div>
-                <img className="overflow-hidden w-[30%] duration-250 delay-75 hover:scale-110" src="public\images\chef.png" alt="" />
+                <img className="overflow-hidden w-[30%] duration-250 delay-75 hover:scale-110" src="\images\chef.png" alt="" />
             </div>
             
             <div className="absolute bottom-20 left-[5%] max-w-md">

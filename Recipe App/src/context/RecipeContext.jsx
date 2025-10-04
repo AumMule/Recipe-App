@@ -43,7 +43,7 @@ const RecipeContext = (props) => {
           title: "Paneer Butter Masala",
           ingredients: ["paneer", "butter", "cream", "tomato", "spices"],
           instructions: "Cook tomatoes and spices, blend into gravy. Add paneer and cream. Simmer and serve hot.",
-          image: "https://cdn.pixabay.com/photo/2020/05/07/10/27/paneer-5140340_960_720.jpg",
+          image: "https://cdn.pixabay.com/photo/2022/03/02/12/42/paneer-7043099_1280.jpg",
           chef: "Sakshi P."
         },
         {
