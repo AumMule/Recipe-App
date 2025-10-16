@@ -7,7 +7,7 @@ import SingleRecipe from "../pages/SingleRecipe";
 import RecipeUpdater from "../pages/RecipeUpdater";
 
 const Mainroutes = () => {
-    return (
+    return (    
         <Routes>
             <Route path="/" element={<Home />} />
 

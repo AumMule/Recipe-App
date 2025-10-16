@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/* Prevent body horizontal scroll and ensure smooth mobile rendering */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
