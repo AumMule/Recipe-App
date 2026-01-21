@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { recipecontext } from "../context/RecipeContext";
 
@@ -7,10 +7,21 @@ const SingleRecipe = () => {
     const navigate = useNavigate();
     const { id } = useParams(); // Destructuring for cleaner access
     const recipe = data.find((r) => r.id == id);
+    const [showFullInstructions, setShowFullInstructions] = useState(false);
 
     const handleClick = () => {
         navigate(`/recipes/updater/${recipe.id}`);
     };
+
+    const truncateText = (text, maxWords) => {
+        const words = text.split(' ');
+        if (words.length <= maxWords) return text;
+        return words.slice(0, maxWords).join(' ') + '...';
+    };
+
+    const instructions = recipe?.instructions || '';
+    const isLongInstructions = instructions.split(' ').length > 50;
+    const displayedInstructions = showFullInstructions ? instructions : truncateText(instructions, 50);
 
     return recipe ? (
         // Main container: Centered with a max-width and responsive padding
@@ -47,8 +58,16 @@ const SingleRecipe = () => {
                             </div>
                             <div className="pl-5">
                                 <p className="text-lg font-medium leading-relaxed text-gray-700 whitespace-pre-line">
-                                    {recipe.instructions}
+                                    {displayedInstructions}
                                 </p>
+                                {isLongInstructions && (
+                                    <button
+                                        onClick={() => setShowFullInstructions(!showFullInstructions)}
+                                        className="text-blue-500 hover:text-blue-700 mt-2"
+                                    >
+                                        {showFullInstructions ? 'Show Less' : 'Show More'}
+                                    </button>
+                                )}
                             </div>
                         </div>
 
@@ -63,9 +82,12 @@ const SingleRecipe = () => {
                             <div className="pl-5">
                                 <ul className="list-disc pl-6 text-lg font-medium leading-relaxed text-gray-700 space-y-2">
                                     {Array.isArray(recipe.ingredients) && recipe.ingredients.length > 0 ? (
-                                        recipe.ingredients.map((item, index) => <li key={index}>{item}</li>)
+                                        recipe.ingredients.slice(0, 10).map((item, index) => <li key={index}>{item}</li>)
                                     ) : (
                                         <li className="list-none text-gray-500 italic">No ingredients available</li>
+                                    )}
+                                    {recipe.ingredients && recipe.ingredients.length > 10 && (
+                                        <li className="list-none text-gray-500 italic">and {recipe.ingredients.length - 10} more...</li>
                                     )}
                                 </ul>
                             </div>

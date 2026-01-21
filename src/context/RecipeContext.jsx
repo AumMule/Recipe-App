@@ -136,7 +136,17 @@ const RecipeContext = (props) => {
         localStorage.setItem("recipes", JSON.stringify(allRecipes));
         setdata(allRecipes);
       } else {
-        setdata(localData);
+        // Check if we need to fetch more recipes
+        if (localData.length < 20) { // If less than 20, fetch more
+          const apiRecipes = await fetchRecipesFromAPI();
+          const existingIds = new Set(localData.map(r => r.id));
+          const newRecipes = apiRecipes.filter(r => !existingIds.has(r.id));
+          const updatedRecipes = [...localData, ...newRecipes];
+          localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
+          setdata(updatedRecipes);
+        } else {
+          setdata(localData);
+        }
       }
     };
 

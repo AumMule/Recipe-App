@@ -16,7 +16,7 @@ const RecipeCard = (props) => {
                 <small className="text-blue-400">more</small>
             </p>
             <div className="flex justify-end">
-  <small className="px-4 text-[#FF4343]  pb-2">~ {chef}</small>
+  <small className="px-4 text-[#FF4343]  pb-2">~ {chef || 'NA'}</small>
 </div>
         </Link>
     );
