@@ -4,15 +4,16 @@ export const recipecontext = createContext(null);
 
 const RecipeContext = (props) => {
   const [data, setdata] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchRecipesFromAPI = async () => {
+  const fetchRecipesFromAPI = async (number = 5) => {
     const apiKey = import.meta.env.VITE_SPOONACULAR_API_KEY;
     if (!apiKey) {
       console.warn("Spoonacular API key not found");
       return [];
     }
     try {
-      const response = await fetch(`https://api.spoonacular.com/recipes/random?number=5&apiKey=${apiKey}`);
+      const response = await fetch(`https://api.spoonacular.com/recipes/random?number=${number}&apiKey=${apiKey}`);
       const result = await response.json();
       if (result.recipes) {
         return result.recipes.map(recipe => ({
@@ -28,6 +29,17 @@ const RecipeContext = (props) => {
       console.error("Error fetching recipes from API:", error);
     }
     return [];
+  };
+
+  const loadMoreRecipes = async () => {
+    setIsLoading(true);
+    const newRecipes = await fetchRecipesFromAPI(10); // Load 10 more
+    const existingIds = new Set(data.map(r => r.id));
+    const filteredNewRecipes = newRecipes.filter(r => !existingIds.has(r.id));
+    const updatedData = [...data, ...filteredNewRecipes];
+    setdata(updatedData);
+    localStorage.setItem("recipes", JSON.stringify(updatedData));
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -154,7 +166,7 @@ const RecipeContext = (props) => {
   }, []);
 
   return (
-    <recipecontext.Provider value={{ data, setdata }}>
+    <recipecontext.Provider value={{ data, setdata, loadMoreRecipes, isLoading }}>
       {props.children}
     </recipecontext.Provider>
   );

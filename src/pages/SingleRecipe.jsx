@@ -1,17 +1,12 @@
 import { useContext, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { recipecontext } from "../context/RecipeContext";
 
 const SingleRecipe = () => {
     const { data } = useContext(recipecontext);
-    const navigate = useNavigate();
     const { id } = useParams(); // Destructuring for cleaner access
     const recipe = data.find((r) => r.id == id);
     const [showFullInstructions, setShowFullInstructions] = useState(false);
-
-    const handleClick = () => {
-        navigate(`/recipes/updater/${recipe.id}`);
-    };
 
     const truncateText = (text, maxWords) => {
         const words = text.split(' ');
@@ -82,28 +77,18 @@ const SingleRecipe = () => {
                             <div className="pl-5">
                                 <ul className="list-disc pl-6 text-lg font-medium leading-relaxed text-gray-700 space-y-2">
                                     {Array.isArray(recipe.ingredients) && recipe.ingredients.length > 0 ? (
-                                        recipe.ingredients.slice(0, 10).map((item, index) => <li key={index}>{item}</li>)
+                                        recipe.ingredients.slice(0, 13).map((item, index) => <li key={index}>{item}</li>)
                                     ) : (
                                         <li className="list-none text-gray-500 italic">No ingredients available</li>
                                     )}
-                                    {recipe.ingredients && recipe.ingredients.length > 10 && (
-                                        <li className="list-none text-gray-500 italic">and {recipe.ingredients.length - 10} more...</li>
+                                    {recipe.ingredients && recipe.ingredients.length > 13 && (
+                                        <li className="list-none text-gray-500 italic">and {recipe.ingredients.length - 13} more...</li>
                                     )}
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            {/* Update Button */}
-            <div className="w-full flex justify-center lg:justify-end mt-8 px-4">
-                <button
-                    onClick={handleClick}
-                    className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md transition-transform transform hover:scale-105 hover:bg-blue-700"
-                >
-                    Update Recipe
-                </button>
             </div>
         </div>
     ) : (
