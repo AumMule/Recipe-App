@@ -20,7 +20,7 @@ const SingleRecipe = () => {
 
     return recipe ? (
         // Main container: Centered with a max-width and responsive padding
-        <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
+        <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 animate-fadeIn">
             {/* Header section with responsive typography */}
             <div className="mb-8">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800">{recipe.title}</h1>
@@ -58,7 +58,7 @@ const SingleRecipe = () => {
                                 {isLongInstructions && (
                                     <button
                                         onClick={() => setShowFullInstructions(!showFullInstructions)}
-                                        className="text-blue-500 hover:text-blue-700 mt-2"
+                                        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 font-medium"
                                     >
                                         {showFullInstructions ? 'Show Less' : 'Show More'}
                                     </button>

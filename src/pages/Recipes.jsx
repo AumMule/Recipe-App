@@ -16,7 +16,7 @@ const Recipes = () => {
                 <>
                     {/* Responsive grid layout is better than flex-wrap for card galleries */}
                     {/* It provides control over columns and consistent spacing with 'gap'. */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 animate-fadeIn">
                         {data.map((recipe) => (
                             <RecipeCard key={recipe.id} recipe={recipe} />
                         ))}
@@ -27,9 +27,16 @@ const Recipes = () => {
                         <button
                             onClick={loadMoreRecipes}
                             disabled={isLoading}
-                            className="px-6 py-3 bg-blue-500 text-white rounded disabled:bg-gray-300"
+                            className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                         >
-                            {isLoading ? "Loading..." : "Load More Recipes"}
+                            {isLoading ? (
+                                <div className="flex items-center space-x-2">
+                                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin-custom"></div>
+                                    <span>Loading...</span>
+                                </div>
+                            ) : (
+                                "Load More Recipes"
+                            )}
                         </button>
                     </div>
                 </>

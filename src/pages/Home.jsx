@@ -7,25 +7,25 @@ const Home = () => {
         navigate(`/recipes`); 
     };
 
-    return <div>
+    return <div className="animate-fadeIn">
 
         <div className="flex flex-row w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 gap-6 justify-between max-md:flex-col">
             <div className="flex justify-center items-center w-full md:w-2/3 max-md:mt-8">
-                <h2 className="font-bold text-3xl sm:text-6xl text-center text-gray-800">
+                <h2 className="font-bold text-3xl sm:text-6xl text-center text-gray-800 animate-fadeIn">
                     "Find the perfect recipe  <span className="text-yellow-500">fast</span>, <span className="text-[#FF4343]">fresh</span>, and <span className=" duration-75 delay-75 opacity-65 hover:opacity-95">full of flavor</span>.”
                 </h2>
             </div>
-            <img className="overflow-hidden w-full md:w-1/3 duration-200 delay-75 hover:scale-105 max-md:w-full" src="/images/chef.png" alt="Chef Illustration" />
+            <img className="overflow-hidden w-full md:w-1/3 duration-300 hover:scale-105 max-md:w-full animate-fadeIn" src="/images/chef.png" alt="Chef Illustration" />
 
         </div>
         
-        <div className="w-full flex justify-center mt-10 pb-10 px-4">
-            <button onClick={handleClick} className="bg-yellow-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-yellow-600 transition">
+        <div className="w-full flex justify-center mt-10 pb-10 px-4 animate-fadeIn">
+            <button onClick={handleClick} className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:from-yellow-600 hover:to-yellow-700">
                 Explore Recipes
             </button>
         </div>
         
-        <h1 className="text-xl sm:text-5xl font-montserrat italic opacity-50 fixed sm:absolute bottom-3 right-3 sm:right-[2%] font-bold tracking-tight text-gray-900" >
+        <h1 className="text-xl sm:text-5xl font-montserrat italic opacity-50 fixed sm:absolute bottom-3 right-3 sm:right-[2%] font-bold tracking-tight text-gray-900 animate-fadeIn" >
             <span className="text-yellow-600">Recipe</span>
             <span className="text-red-500">You</span>
             <span className="text-black">Need</span>

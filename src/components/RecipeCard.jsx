@@ -5,19 +5,21 @@ const RecipeCard = (props) => {
     return (
         <Link
             to={`/recipes/details/${id}`}
-            className="block rounded-2xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-shadow duration-300 w-full"
+            className="block rounded-2xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-all duration-300 w-full transform hover:scale-105"
         >
             <div className="p-4">
-            <img className="rounded-lg shadow-xl object-cover w-full aspect-[4/3] hover:scale-105 duration-300 hover:shadow-2xl" src={image} alt="" />
+                <img className="rounded-lg shadow-xl object-cover w-full aspect-[4/3] hover:scale-105 transition-transform duration-300 hover:shadow-2xl" src={image} alt={title} />
             </div>
-            <h1 className="px-4 font-mono text-xl sm:text-2xl mb-2 leading-7 text-gray-800">{title}</h1>
-            <p className="px-4 font-medium opacity-70 text-black">
-                {/* {desc.slice(0, 100)}...{" "} */}
-                <small className="text-blue-400">more</small>
-            </p>
-            <div className="flex justify-end">
-  <small className="px-4 text-[#FF4343]  pb-2">~ {chef || 'NA'}</small>
-</div>
+            <div className="px-4 pb-4">
+                <h1 className="font-mono text-xl sm:text-2xl mb-2 leading-7 text-gray-800 font-semibold">{title}</h1>
+                <p className="font-medium opacity-70 text-black mb-2">
+                    {/* {desc.slice(0, 100)}...{" "} */}
+                    <small className="text-blue-500 hover:text-blue-700 transition-colors">View Details</small>
+                </p>
+                <div className="flex justify-end">
+                    <small className="text-[#FF4343] font-medium">~ {chef || 'Unknown Chef'}</small>
+                </div>
+            </div>
         </Link>
     );
 };
