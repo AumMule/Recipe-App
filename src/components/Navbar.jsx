@@ -33,9 +33,9 @@ const Navbar = () => {
                     <NavLink className={navLinkClasses} to="/recipes">Recipes</NavLink>
                     <NavLink className={navLinkClasses} to="/about">About</NavLink>
                     <NavLink className={navLinkClasses} to="/create-recipe">Create Recipe</NavLink>
-                    <button className="bg-[#ffbb00] hover:bg-[#b38400] text-black font-semibold rounded px-4 py-2 transition-colors">
+                    <NavLink to="/profile" className="bg-[#ffbb00] hover:bg-[#b38400] text-black font-semibold rounded px-4 py-2 transition-colors">
                         Profile
-                    </button>
+                    </NavLink>
                 </div>
 
                 {/* Hamburger Menu Button (Visible only on mobile) */}
@@ -63,9 +63,9 @@ const Navbar = () => {
                     <NavLink onClick={() => setIsMenuOpen(false)} className={navLinkClasses} to="/recipes">Recipes</NavLink>
                     <NavLink onClick={() => setIsMenuOpen(false)} className={navLinkClasses} to="/about">About</NavLink>
                     <NavLink onClick={() => setIsMenuOpen(false)} className={navLinkClasses} to="/create-recipe">Create Recipe</NavLink>
-                    <button className="w-full bg-[#ffbb00] hover:bg-[#b38400] text-black font-semibold rounded px-4 py-2 transition-colors">
+                    <NavLink onClick={() => setIsMenuOpen(false)} to="/profile" className="w-full bg-[#ffbb00] hover:bg-[#b38400] text-black font-semibold rounded px-4 py-2 transition-colors text-center">
                         Profile
-                    </button>
+                    </NavLink>
                 </div>
             )}
         </nav>

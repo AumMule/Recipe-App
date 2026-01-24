@@ -5,6 +5,7 @@ import About from "../pages/About";
 import Create from "../pages/Create";
 import SingleRecipe from "../pages/SingleRecipe";
 import RecipeUpdater from "../pages/RecipeUpdater";
+import Profile from "../pages/Profile";
 
 const Mainroutes = () => {
     return (    
@@ -17,6 +18,7 @@ const Mainroutes = () => {
 
             <Route path="/about" element={<About />} />
             <Route path="/recipes/updater/:id" element={<RecipeUpdater />} />
+            <Route path="/profile" element={<Profile />} />
             
         </Routes>
     );

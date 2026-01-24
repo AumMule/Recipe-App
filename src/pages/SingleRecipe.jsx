@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { recipecontext } from "../context/RecipeContext";
 
 const SingleRecipe = () => {
@@ -23,8 +23,18 @@ const SingleRecipe = () => {
         <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 lg:p-8 animate-fadeIn">
             {/* Header section with responsive typography */}
             <div className="mb-8">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800">{recipe.title}</h1>
-                <p className="text-xl text-red-500 mt-2">~ {recipe.chef}</p>
+                <div className="flex justify-between items-start">
+                    <div>
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800">{recipe.title}</h1>
+                        <p className="text-xl text-red-500 mt-2">~ {recipe.chef}</p>
+                    </div>
+                    <Link
+                        to={`/recipes/updater/${id}`}
+                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium shadow-sm"
+                    >
+                        Edit Recipe
+                    </Link>
+                </div>
             </div>
 
             {/* Content layout: Stacks vertically on mobile, row on large screens */}
